@@ -40,4 +40,5 @@ Antes de cargar este código en tu placa Arduino, asegúrate de haber conectado 
 
 - Si experimentas problemas con la tira de LEDs, asegúrate de haber configurado correctamente el tipo de tira y el esquema de color en la función `FastLED.addLeds<WS2812B, PIN_LED, GRB>(leds, NUM_LEDS)`.
 
-[www.youtube.com/](https://www.youtube.com/@xaviercaju)https://www.youtube.com/@xaviercaju
+https://www.youtube.com/@xaviercaju
+https://github.com/xaviercaju
