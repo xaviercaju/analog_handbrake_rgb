@@ -6,6 +6,9 @@
 
 CRGB leds[NUM_LEDS];
 
+const int deadZone = 10;  // Tamaño de la zona muerta
+const int maxPot = 123;
+
 void setup() {
   pinMode(A0, INPUT);
   pinMode(PIN_LED, OUTPUT);
@@ -15,12 +18,20 @@ void setup() {
   Serial.begin(9600); // Inicializar el puerto serie para ver la posición en el Monitor Serie
 
   FastLED.addLeds<WS2812B, PIN_LED, GRB>(leds, NUM_LEDS); // Configurar la tira de LEDs
-  FastLED.setBrightness(255); // Establecer el brillo al 50% (rango 0-255)
+  FastLED.setBrightness(100); // Establecer el brillo al 50% (rango 0-255)
 }
 
 void loop() {
   int potValue = analogRead(A0);
-  int mappedValue = map(potValue, 0, 1023, 0, 100); // Mapear el valor a un rango de 0 a 100
+
+  // Aplicar la zona muerta
+  if (potValue < deadZone) {
+    potValue = 0;  // En la zona muerta inferior, asume mínimo
+  } else if (potValue > maxPot - deadZone) {
+    potValue = maxPot;  // En la zona muerta superior, asume máximo
+  }
+
+  int mappedValue = map(potValue, deadZone, maxPot - deadZone, 30, -230); // Mapear el valor a un rango de 0 a 100
   
   Joystick.setThrottle(mappedValue); // Enviar el valor mapeado al eje de "throttle" del Joystick
   
