@@ -14,6 +14,7 @@ duration = 10  # Duración de la calibración en segundos
 start_time = time.time()
 
 while time.time() - start_time < duration:
+    
     value = int(ser.readline().strip())
     if value < min_value:
         min_value = value
