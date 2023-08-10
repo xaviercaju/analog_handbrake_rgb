@@ -32,6 +32,7 @@ void loop() {
   }
 
   int mappedValue = map(potValue, deadZone, maxPot - deadZone, 30, -230); // Mapear el valor a un rango de 0 a 100
+  //new logic
   
   Joystick.setThrottle(mappedValue); // Enviar el valor mapeado al eje de "throttle" del Joystick
   
