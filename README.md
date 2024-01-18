@@ -24,7 +24,7 @@ Mediante un potenciometro lineal simulamos un joystick que proporciona una respu
 
 - `setup()`: Esta función se ejecuta una vez al inicio y se encarga de inicializar la configuración inicial del programa, como la configuración de pines y la inicialización de las bibliotecas Joystick y FastLED.
 
-- `loop()`: Esta función se ejecuta en bucle continuamente después de la función `setup()`. En esta función, se realiza el proceso principal del programa, que incluye leer el valor del potenciómetro del joystick, mapear ese valor a un rango de 0 a 100 y enviarlo como el valor del eje "throttle" del Joystick. También se controla la respuesta LED de la tira según el valor mapeado.
+- `loop()`: Esta función se ejecuta en bucle continuamente después de la función `setup()`. En esta función, se realiza el proceso principal del programa, que incluye leer el valor del potenciómetro del joystick, mapear ese valor a un rango de 0 a 255 y enviarlo como el valor del eje "throttle" del Joystick. También se controla la respuesta LED de la tira según el valor mapeado.
 
 ## Configuración
 
